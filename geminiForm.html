@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Interactive Form</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a cleaner look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom focus style for better accessibility and design */
+        .form-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #a855f7; /* Equivalent to focus:ring-2 focus:ring-purple-500 */
+            border-color: #a855f7;
+        }
+        .error-message {
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-600 to-blue-500 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Create an Account</h1>
+
+        <!-- The 'novalidate' attribute prevents default browser validation,
+             so we can use our custom JavaScript validation. -->
+        <form id="registrationForm" method="get" novalidate>
+            <div class="space-y-6">
+                <!-- Name Input -->
+                <div class="form-group">
+                    <label for="nameid" class="block text-sm font-medium text-gray-700 mb-1">Enter Name</label>
+                    <input type="text" name="fname" id="nameid" placeholder="e.g., John Doe" required pattern="^[a-zA-Z\s]{3,30}$" class="form-input block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md transition duration-150 ease-in-out focus:border-purple-500">
+                    <p class="error-message text-red-500 text-xs mt-1">Please enter a valid name (3-30 letters).</p>
+                </div>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="mailid" class="block text-sm font-medium text-gray-700 mb-1">Enter Email</label>
+                    <input type="email" name="mail" id="mailid" placeholder="e.g., you@example.com" required class="form-input block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md transition duration-150 ease-in-out focus:border-purple-500">
+                    <p class="error-message text-red-500 text-xs mt-1">Please enter a valid email address.</p>
+                </div>
+
+                <!-- Mobile Number Input -->
+                <div class="form-group">
+                    <label for="mobileid" class="block text-sm font-medium text-gray-700 mb-1">Mobile No</label>
+                    <input type="tel" id="mobileid" placeholder="e.g., 9876543210" required pattern="^[0-9]{10}$" class="form-input block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md transition duration-150 ease-in-out focus:border-purple-500">
+                    <p class="error-message text-red-500 text-xs mt-1">Please enter a valid 10-digit mobile number.</p>
+                </div>
+
+                <!-- Date of Birth Input -->
+                <div class="form-group">
+                    <label for="dobid" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                    <input type="date" id="dobid" required class="form-input block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md transition duration-150 ease-in-out focus:border-purple-500">
+                    <p class="error-message text-red-500 text-xs mt-1">Please select your date of birth.</p>
+                </div>
+
+                <!-- Gender Selection -->
+                <div class="form-group">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                    <div class="flex items-center space-x-6">
+                        <label for="male" class="flex items-center cursor-pointer">
+                            <input type="radio" id="male" name="gender" value="Male" required class="h-4 w-4 text-purple-600 border-gray-300 focus:ring-purple-500">
+                            <span class="ml-2 text-sm text-gray-700">Male</span>
+                        </label>
+                        <label for="female" class="flex items-center cursor-pointer">
+                            <input type="radio" id="female" name="gender" value="Female" required class="h-4 w-4 text-pink-600 border-gray-300 focus:ring-pink-500">
+                            <span class="ml-2 text-sm text-gray-700">Female</span>
+                        </label>
+                        <label for="other" class="flex items-center cursor-pointer">
+                            <input type="radio" id="other" name="gender" value="Other" required class="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500">
+                            <span class="ml-2 text-sm text-gray-700">Other</span>
+                        </label>
+                    </div>
+                     <p id="genderError" class="error-message text-red-500 text-xs mt-1">Please select a gender.</p>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="passid" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="passid" placeholder="Must be at least 8 characters" required pattern=".{8,}" class="form-input block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md transition duration-150 ease-in-out focus:border-purple-500">
+                    <p class="error-message text-red-500 text-xs mt-1">Password must be at least 8 characters long.</p>
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- Success Message container -->
+        <div id="successMessage" class="hidden mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+            <p class="font-bold">Success!</p>
+            <p>Your form has been submitted successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // --- FORM SUBMISSION HANDLER ---
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent actual submission
+                
+                // Hide success message from previous submissions
+                successMessage.classList.add('hidden');
+
+                const isFormValid = validateAllFields();
+
+                if (isFormValid) {
+                    console.log('Form is valid and ready to be submitted.');
+                    // Show a success message
+                    successMessage.classList.remove('hidden');
+                    // In a real application, you would submit the form data here, e.g., using fetch()
+                    // form.submit(); // Or uncomment this to do a standard GET submission
+                } else {
+                    console.log('Form has validation errors.');
+                }
+            });
+            
+            // --- LIVE VALIDATION ON INPUT CHANGE ---
+            const inputs = form.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    validateField(input);
+                });
+            });
+
+            // --- VALIDATION LOGIC ---
+
+            function validateAllFields() {
+                let allValid = true;
+                const fieldsToValidate = form.querySelectorAll('input[required]');
+                fieldsToValidate.forEach(input => {
+                    if (!validateField(input)) {
+                        allValid = false;
+                    }
+                });
+                 // Special handling for radio buttons
+                const genderRadios = document.querySelectorAll('input[name="gender"]');
+                const genderError = document.getElementById('genderError');
+                const genderChecked = Array.from(genderRadios).some(radio => radio.checked);
+                
+                if (!genderChecked) {
+                    genderError.style.display = 'block';
+                    allValid = false;
+                } else {
+                    genderError.style.display = 'none';
+                }
+
+                return allValid;
+            }
+
+            function validateField(input) {
+                const formGroup = input.closest('.form-group');
+                if (!formGroup) return true; // Failsafe for elements not in a group
+
+                const errorElement = formGroup.querySelector('.error-message');
+                let isValid = true;
+                
+                // For radio buttons, validation is handled in the group
+                if (input.type === 'radio') {
+                     const genderError = document.getElementById('genderError');
+                     const isAnyChecked = Array.from(document.querySelectorAll('input[name="gender"]')).some(r => r.checked);
+                     if (isAnyChecked) {
+                         genderError.style.display = 'none';
+                     }
+                     return isAnyChecked;
+                }
+
+                // Use the browser's built-in checkValidity which respects patterns, required, type, etc.
+                if (!input.checkValidity()) {
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Field is valid: remove error styles
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-gray-300');
+                    if (errorElement) errorElement.style.display = 'none';
+                } else {
+                    // Field is invalid: add error styles
+                    input.classList.remove('border-gray-300');
+                    input.classList.add('border-red-500');
+                    if (errorElement) errorElement.style.display = 'block';
+                }
+
+                return isValid;
+            }
+        });
+    </script>
+
+</body>
+</html>
+

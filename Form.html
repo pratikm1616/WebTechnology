@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="background-color: brown;"><center>Form</center></h1>
+    <form method="get" >
+        <center>
+        <!-- for is used to create id and that id is passed to id in input 
+        label is used to give label name -->
+
+        <label for="nameid" style="background-color: aqua;" >Enter Name</label>
+
+        <!-- name int input is given for machine understanding
+        placeholder is used to show the name in box -->
+
+        <input type="text" name="fname" id="nameid" placeholder="Name" pattern="^[a-zA-Z]{3,20}">
+        <br>
+        <label for="mailid" style="background-color: aqua;">Enter Mail</label>
+        <input type="email" name="mail" id="mailid" placeholder="Email">
+        <br>
+        <label for="mid" style="background-color: aqua;">Mobile no </label>
+        <input type="number" placeholder="Mobile no" pattern="^1-10$">
+        <br>
+
+        <label for="dobid" style="background-color: aqua;">DOB</label>
+        <input type="date" id="dobid">
+
+<br>
+         <label for="genderid" style="background-color: aqua;">Gender</label>
+            
+        <input type="radio" id="genderid" value="Male">
+        <label for="">Male</label>
+        
+        <input type="radio" id="genderid" value="Female">
+        <label for="">Female</label>
+        
+        <input type="radio" id="genderid" value="Shemale">
+        <label for="">Shemale</label>
+
+
+
+
+
+
+
+
+        <br>
+        <label for="passid" style="background-color: aqua;">Password</label>
+        <input type="password" id="passid" placeholder="password" >
+        <br>
+        <button type="submit">Submit</button>
+        </center>
+
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+                flex-direction: column;
+            display: flex;
+    align-items: center; 
+    /* text-align: center; */
+        }
+        div{
+                border: solid 10px;
+    padding: 20px;
+    width: 200px;
+    border-right-color: aqua;
+    border-left-color: aqua;
+    
+        }
+    p{
+            background-color: #ecb9a9;
+    /* border: solid 2px;
+    padding: 10px; */
+    }
+    </style>
+</head>
+<body>
+   
+    <h1 style="text-align: center;">Form Task</h1>
+    <div>
+         <form></form>
+    <label for="">Enter name</label>
+    <input type="text" id="name" autofocus><br>
+    <label for="">Enter mail</label>
+    <input type="mail" id="mail"><br>
+    <label for="">Enter Gender</label>
+    <input type="text" id="gender"><br>
+    <label for="">Enter Mobile</label>
+    <input type="number" id="number"><br>
+
+    <button type="submit" onclick="submit()">Submit</button>
+     </form>
+    </div>
+    <p id="result"></p>
+   
+    
+    
+    
+
+    <script>
+        function submit(){
+           let nam= document.getElementById("name").value;
+           let email= document.getElementById("mail").value;
+           let gen= document.getElementById("gender").value;
+           let num= document.getElementById("number").value;
+
+           let resultdata=document.getElementById("result");
+           resultdata.innerHTML=`Name:${nam} <br>Mail:${email} <br>Gender:${gen} <br>MobileNumber:${num}` ;
+        }
+    </script>
+    
+</body>
+</html>

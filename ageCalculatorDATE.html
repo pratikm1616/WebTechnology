@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <title>Document</title>
+    <style>
+    body{
+        text-align: center;
+        background-color: aqua;
+            border: solid 10px mintcream;
+    margin: 20px;
+    display: inline-grid
+;
+    text-align: center;
+
+    }
+      #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: darkblue;
+        }
+    </style>
+   
+</head>
+<body>
+    <h1 style="text-align: center;">Age Calculator</h1>
+    <p style="color: rgb(212, 14, 80);"><b><u>Please fill below info to calculate your age</u></b></p>
+    <div>
+        <label for="">Enter your Birth date</label>
+        <input type="date" id="dob"><br><br>
+           <button onclick="calculateAge()" class="btn btn-danger">Calculate Age</button>
+    </div>
+        
+    <p id="result"></p>
+    </div>
+    <script>
+        function calculateAge(){
+            let dob=document.getElementById("dob").value;
+            if(dob===""){
+                document.getElementById("result").innerText="please Enter date of birth";
+             return;
+            }
+               let birthDate = new Date(dob);
+            let today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+            let month = today.getMonth() - birthDate.getMonth();
+            let day = today.getDate() - birthDate.getDate();
+
+            // Adjust if birthday hasn’t come yet this year
+            if (month < 0 || (month === 0 && day < 0)) {
+                age--;
+            }
+
+            document.getElementById("result").innerText = `🎉 Your Age is: ${age} years`;
+        }
+        
+    </script>
+    
+</body>
+</html>
